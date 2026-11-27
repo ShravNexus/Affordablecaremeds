@@ -134,6 +134,10 @@ class OtpLoginTest extends TestCase
 
         $page = $this->get('/manager/otp')
             ->assertOk()
+            ->assertSee('href="'.asset('css/fonts/manager-auth.css').'?v=', false)
+            ->assertSee('href="'.asset('css/vendor/bootstrap-5.3.3.min.css').'?v=', false)
+            ->assertSee('href="'.asset('css/vendor/bootstrap-icons-1.11.3.min.css').'?v=', false)
+            ->assertDontSee('fonts.googleapis.com')
             ->assertSee('Verify it')
             // Which inbox to open, masked: this screen is reached with a password alone.
             ->assertSee('se*****@aurum.test')

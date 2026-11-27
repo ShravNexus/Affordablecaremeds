@@ -14,6 +14,8 @@ class ErrorPageTest extends TestCase
     {
         $this->get('/this-route-does-not-exist')
             ->assertNotFound()
+            ->assertSee('href="'.asset('css/fonts/error.css').'?v=', false)
+            ->assertDontSee('fonts.googleapis.com')
             ->assertSee('This page has wandered off.')
             ->assertSee('Back to home');
     }

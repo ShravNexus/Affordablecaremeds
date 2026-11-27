@@ -19,10 +19,8 @@
         <link rel="apple-touch-icon" href="{{ $site->image('brand.favicon') }}">
     @endif
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="@versionedAsset('css/fonts/storefront.css')">
+    <link rel="stylesheet" href="@versionedAsset('css/vendor/bootstrap-5.3.3.min.css')">
 
     {{-- shared shell: tokens, base, ticker, header, footer --}}
     <link rel="stylesheet" href="@versionedAsset('css/common.css')">
