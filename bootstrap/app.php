@@ -1,6 +1,7 @@
 <?php
 
 use App\Exceptions\ApiException;
+use App\Http\Middleware\BlockIndianVisitors;
 use App\Http\Middleware\EnsureAdmin;
 use App\Http\Middleware\EnsureAdminIsActive;
 use App\Http\Middleware\LogManagerActivity;
@@ -31,6 +32,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->append(BlockIndianVisitors::class);
+
         // Lets same-origin browser calls to /api/* authenticate from the admin
         // session cookie instead of a bearer token, and brings CSRF validation
         // with it. Without this the panel would have to keep a token in JS.
